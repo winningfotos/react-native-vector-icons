@@ -4,9 +4,9 @@
  */
 
 import createIconSet from './lib/create-icon-set';
-import glyphMap from './glyphmaps/WF.json';
+import glyphMap from './glyphmaps/WFIcons.json';
 
-const iconSet = createIconSet(glyphMap, 'WFIcons', 'WF.ttf');
+const iconSet = createIconSet(glyphMap, 'WFIcons', 'WFIcons.ttf');
 
 export default iconSet;
 
