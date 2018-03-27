@@ -31,8 +31,6 @@
   "wifi": 61931,
   "eye-off": 59665,
   "eye":59664,
-  "share-outline": 62666,
-  "heart-outline": 62530,
   "gear": 59667,
   "size-fullscreen": 57431,
   "grid": 57450,
@@ -48,5 +46,6 @@
   "star": 61445,
   "rss": 61598,
   "mobile": 61707,
-  "envelope-o": 61443
+  "envelope-o": 61443,
+  "clock": 57473
 }
