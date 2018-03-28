@@ -15,6 +15,7 @@
   "pricetag": 62605,
   "share-outline": 62666,
   "like": 57448,
+  "dislike": 57453,
   "home": 57449,
   "trophy": 59648,
   "pointer": 59649,
@@ -30,7 +31,7 @@
   "calendar": 61555,
   "wifi": 61931,
   "eye-off": 59665,
-  "eye":59664,
+  "eye": 59664,
   "gear": 59667,
   "size-fullscreen": 57431,
   "grid": 57450,
@@ -49,5 +50,6 @@
   "envelope-o": 61443,
   "clock": 57473,
   "redo": 62617,
-  "undo": 62663
+  "undo": 62663,
+  "medal": 59650
 }
