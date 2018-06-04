@@ -10,13 +10,13 @@ Perfect for buttons, logos and nav/tab bars. Easy to extend, style and integrate
 
 * [`Entypo`](http://entypo.com) by Daniel Bruce (**411** icons) 
 * [`EvilIcons`](http://evil-icons.io) by Alexander Madyankin & Roman Shamin (v1.8.0, **70** icons) 
-* [`Feather`](http://feathericons.com) by Cole Bemis & Contributors (v3.2.2, **240** icons) 
+* [`Feather`](http://feathericons.com) by Cole Bemis & Contributors (v4.7.0, **266** icons) 
 * [`FontAwesome`](http://fortawesome.github.io/Font-Awesome/icons/) by Dave Gandy (v4.7.0, **675** icons) 
 * [`Foundation`](http://zurb.com/playground/foundation-icon-fonts-3) by ZURB, Inc. (v3.0, **283** icons)
 * [`Ionicons`](http://ionicframework.com/docs/v2/ionicons/) by Ben Sperry (v3.0.0, **859** icons)
 * [`MaterialIcons`](https://www.google.com/design/icons/) by Google, Inc. (v3.0.1, **932** icons)
-* [`MaterialCommunityIcons`](https://materialdesignicons.com/) by MaterialDesignIcons.com (v2.1.19, **2120** icons)
-* [`Octicons`](http://octicons.github.com) by Github, Inc. (v6.0.1, **177** icons)
+* [`MaterialCommunityIcons`](https://materialdesignicons.com/) by MaterialDesignIcons.com (v2.2.43, **2244** icons)
+* [`Octicons`](http://octicons.github.com) by Github, Inc. (v7.2.0, **176** icons)
 * [`Zocial`](http://zocial.smcllns.com/) by Sam Collins (v1.0, **100** icons)
 * [`SimpleLineIcons`](http://simplelineicons.com/) by Sabbir & Contributors (v2.4.1, **189** icons)
 
@@ -214,6 +214,8 @@ Any [Text property](http://facebook.github.io/react-native/docs/text.html) and t
 |**`size`**|Size of the icon, can also be passed as `fontSize` in the style object. |`12`|
 |**`name`**|What icon to show, see Icon Explorer app or one of the links above. |*None*|
 |**`color`**|Color of the icon. |*Inherited*|
+
+You can use `Icon.hasIcon(name)` to check if the name is valid in current icon set.
 
 ### Styling
 Since `Icon` builds on top of the `Text` component, most [style properties](http://facebook.github.io/react-native/docs/style.html) will work as expected, you might find it useful to play around with these:
@@ -470,13 +472,14 @@ Save output to file, defaults to STDOUT
 
 #### The icons show up as a crossed out box on Android
 * Make sure you've copied the font to `android/app/src/main/assets/fonts`.
-* Delete the `android/app/build` folder. 
+* Delete the build folder with `rm -rf android/app/build`. 
 * Recompile the project.
 
 #### Red screen with "Unrecognized font family" error on iOS
 * Make sure you've added manually the reference of your `.ttf` on your xcodeproj `Resources` folder.
 * Check that the font you are trying to use appears in `Info.plist`, if you've added the whole folder and it's blue in color, then you need to add it to the path. 
 * Check that the font is copied in the *Copy Bundle Resources* in *Build Phases*.
+* Delete the build folder with `rm -rf ios/build`
 * Recompile the project.
 
 #### Android build fails on Windows for no good reason
