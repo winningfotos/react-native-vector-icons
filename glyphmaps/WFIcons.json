@@ -10,7 +10,6 @@
   "checkmark-outline": 62462,
   "close-outline": 62469,
   "cloud-upload-outline": 62474,
-  "heart-outline": 57482,
   "information-outline": 62540,
   "pricetag": 62605,
   "share-outline": 62666,
@@ -86,5 +85,8 @@
   "headline": 59687,
   "upload": 59688,
   "preview": 59689,
-  "search": 59690
+  "search": 59690,
+  "comment-o": 59691,
+  "heart": 59692,
+  "heart-outline": 59693
 }
