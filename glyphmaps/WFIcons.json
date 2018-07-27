@@ -75,7 +75,7 @@
   "square-o": 59677,
   "check-square-o": 59678,
   "voting": 59679,
-  "favorite": 59680,
+  "star-o": 59680,
   "document": 59681,
   "create-o": 59682,
   "profile": 59683,
@@ -88,5 +88,5 @@
   "search": 59690,
   "comment-o": 59691,
   "heart": 59692,
-  "heart-outline": 59693
+  "heart-o": 59693
 }
