@@ -8,6 +8,7 @@
   "trash-o": 59650,
   "done": 59651,
   "question": 59652,
+  "location": 59653,
   "trophy-image": 59661,
   "rotate-cw": 59662,
   "eye": 59664,
@@ -56,4 +57,3 @@
   "redo": 62617,
   "undo": 62663
 }
-
