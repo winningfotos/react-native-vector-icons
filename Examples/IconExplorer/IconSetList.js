@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {
   Alert,
-  dismissKeyboard,
+  Keyboard,
   Platform,
   SectionList,
   StyleSheet,
@@ -159,20 +159,11 @@ export default class IconSetsList extends PureComponent {
   };
 
   navigateToIconSet(iconSet) {
-    if (Platform.OS === 'ios') {
-      this.props.navigator.push({
-        title: iconSet.name,
-        component: IconList,
-        passProps: { iconSet },
-      });
-    } else {
-      dismissKeyboard();
-      this.props.navigator.push({
-        title: iconSet.name,
-        name: 'iconSet',
-        iconSet,
-      });
-    }
+    this.props.navigator.push({
+      title: iconSet.name,
+      name: 'iconSet',
+      iconSet,
+    });
   }
 
   renderIconSet = ({ item }) => (

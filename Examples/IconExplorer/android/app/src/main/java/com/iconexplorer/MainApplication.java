@@ -2,9 +2,10 @@ package com.iconexplorer;
 
 import android.app.Application;
 
-import com.oblador.vectoricons.VectorIconsPackage;
-
 import com.facebook.react.ReactApplication;
+import com.swmansion.rnscreens.RNScreensPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -25,13 +26,15 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-          new VectorIconsPackage()
+            new RNScreensPackage(),
+            new RNGestureHandlerPackage(),
+            new VectorIconsPackage()
       );
     }
 
     @Override
     protected String getJSMainModuleName() {
-      return "index.android";
+      return "index";
     }
   };
 

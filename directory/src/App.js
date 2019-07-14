@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 
 import './App.css';
 
+import AntDesign from '../../glyphmaps/AntDesign.json';
 import Entypo from '../../glyphmaps/Entypo.json';
 import EvilIcons from '../../glyphmaps/EvilIcons.json';
 import Feather from '../../glyphmaps/Feather.json';
 import FontAwesome from '../../glyphmaps/FontAwesome.json';
+import FontAwesome5 from '../../glyphmaps/FontAwesome5Free.json';
+import FontAwesome5Brands from '../../glyphmaps/FontAwesome5Free.json';
+import FontAwesome5Meta from '../../glyphmaps/FontAwesome5Free_meta.json';
+import Fontisto from '../../glyphmaps/Fontisto.json';
 import Foundation from '../../glyphmaps/Foundation.json';
 import Ionicons from '../../glyphmaps/Ionicons.json';
 import MaterialCommunityIcons from '../../glyphmaps/MaterialCommunityIcons.json';
@@ -16,10 +21,14 @@ import SimpleLineIcons from '../../glyphmaps/SimpleLineIcons.json';
 import Zocial from '../../glyphmaps/Zocial.json';
 
 const IconFamilies = {
+  AntDesign,
   Entypo,
   EvilIcons,
   Feather,
   FontAwesome,
+  FontAwesome5,
+  FontAwesome5Brands,
+  Fontisto,
   Foundation,
   Ionicons,
   MaterialCommunityIcons,
@@ -46,13 +55,11 @@ class Icon extends PureComponent {
   }
 }
 
-const HeaderBar = (props) => {
+const HeaderBar = props => {
   return (
     <div className="Header-Container">
       <div className="Header-Content">
-        <h1 className="Header-Title">
-          react-native-vector-icons directory
-        </h1>
+        <h1 className="Header-Title">react-native-vector-icons directory</h1>
       </div>
     </div>
   );
@@ -62,18 +69,18 @@ class SearchBar extends PureComponent {
   timer = null;
 
   state = {
-    keyword: ''
+    keyword: '',
   };
-  
-  handleSubmit = (e) => {
+
+  handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.inputRef.value);
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     e.preventDefault();
     clearInterval(this.timer);
-    
+
     this.setState({ keyword: this.inputRef.value });
 
     this.timer = setTimeout(
@@ -86,14 +93,22 @@ class SearchBar extends PureComponent {
     return (
       <div className="Search-Container">
         <div className="Search-Content">
-          <form onSubmit={this.handleSubmit}>
-            <Icon family="FontAwesome" name="search" className="Search-Icon" />
+          <form className="Search-Form" onSubmit={this.handleSubmit}>
+            {/* Clicking the Label focuses the cursor onto the form input */}
+            <label htmlFor="Search-Input" className="Search-Label">
+              <Icon
+                family="FontAwesome"
+                name="search"
+                className="Search-Icon"
+              />
+            </label>
             <input
-              ref={ref => this.inputRef = ref}
-              onChange={this.handleChange}
-              placeholder="Search for an icon"
               type="text"
+              id="Search-Input"
               className="Search-Input"
+              ref={ref => (this.inputRef = ref)}
+              onChange={this.handleChange}
+              placeholder="Search for an icon..."
             />
           </form>
         </div>
@@ -114,9 +129,9 @@ class App extends PureComponent {
     this.handleSubmit('');
   }
 
-  handleSubmit = (text) => {
+  handleSubmit = text => {
     let matches = [];
-    Object.keys(IconFamilies).forEach((family) => {
+    Object.keys(IconFamilies).forEach(family => {
       const icons = IconFamilies[family];
       const names = Object.keys(icons);
       const results = names.filter(name => name.indexOf(text) >= 0);
@@ -128,17 +143,7 @@ class App extends PureComponent {
     this.setState({ matches });
   };
 
-  renderFamily(familyName) {
-    return (
-      <div>
-        {Object.keys(IconFamilies[familyName]).map(iconName => (
-          <Icon key={iconName + familyName} family={familyName} name={iconName} />
-        ))}
-      </div>
-    );
-  }
-
-  renderMatch = (match) => {
+  renderMatch = match => {
     const { family, names } = match;
     return (
       <div className="Result-Row" key={family}>
@@ -152,21 +157,22 @@ class App extends PureComponent {
   };
 
   renderIcon(family, name) {
+    let familyName = family;
+
+    if (family === 'FontAwesome5') {
+      if (FontAwesome5Meta.solid.indexOf(name) === -1)
+        familyName = 'FontAwesome5Brands';
+    }
+
     return (
       <div className="Result-Icon-Container" key={name}>
-        <Icon
-          family={family}
-          name={name}
-          className="Result-Icon"
-        />
-        <h4 className="Result-Icon-Name">
-          {name}
-        </h4>
+        <Icon family={familyName} name={name} className="Result-Icon" />
+        <h4 className="Result-Icon-Name">{name}</h4>
       </div>
     );
   }
 
-  renderNotFound () {
+  renderNotFound() {
     return (
       <div className="Result-Row">
         <h2 className="Result-Title">Icon not found.</h2>
